@@ -7,6 +7,7 @@ import xml.etree.ElementTree as ET
 input_csv = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\pmc_ids.csv"
 pmc_df = pd.read_csv(input_csv)
 
+# Lets create a function for prasing xml of the papers. 
 meta_list = []
 # Loop through PMC ID
 for pmc_id in pmc_df["PMC_ID"]:
