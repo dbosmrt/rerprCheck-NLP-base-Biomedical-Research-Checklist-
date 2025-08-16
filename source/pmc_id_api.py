@@ -7,7 +7,7 @@ esearch_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 params = {
     "db": "pmc",
     "term": "biomedical research",
-    "retmax": 50000
+    "retmax": 7000
 }
 
 # Get the data from NCBI
