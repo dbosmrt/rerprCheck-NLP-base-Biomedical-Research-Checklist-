@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 
-def parse_bioc_xml(xml_text):
+def parse_xml(xml_text):
     """
     Parse BioC XML and return metadata and sections.
     """
