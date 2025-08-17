@@ -63,7 +63,7 @@ def download_pdf_from_pmc(pmcid, download_dir):
 
 if __name__ == "__main__":
     # Path to your CSV
-    csv_path = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\data.csv"
+    csv_path = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\pmc_id.csv"
 
     # Directory for downloaded PDFs
     download_dir = os.path.join(os.getcwd(), "pmc_pdfs")
