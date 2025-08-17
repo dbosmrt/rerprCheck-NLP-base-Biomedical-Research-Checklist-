@@ -8,21 +8,17 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 
-# -------------------------------
-# Utility functions
-# -------------------------------
 
 def is_valid_pmcid(pmcid: str) -> bool:
-    """Check if a string is a valid PMCID like PMC1234567"""
     return bool(re.match(r"^PMC\d+$", pmcid))
 
 
 def get_pmcids_from_csv(csv_path, pmc_column="PMC_ID"):
-    """Read CSV and extract only valid PMCIDs (handles encoding issues)."""
+   
     try:
         df = pd.read_csv(csv_path, encoding="utf-8")
     except UnicodeDecodeError:
-        df = pd.read_csv(csv_path, encoding="latin1")  # fallback
+        df = pd.read_csv(csv_path, encoding="latin1")  
 
     if pmc_column not in df.columns:
         raise ValueError(f"CSV does not have a column named '{pmc_column}'")
@@ -36,7 +32,7 @@ def get_pmcids_from_csv(csv_path, pmc_column="PMC_ID"):
 
 
 def download_pdf_from_pmc(pmcid, download_dir):
-    """Open PMC page and download PDF if available."""
+
     url = f"https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/pdf/"
 
     try:
@@ -50,14 +46,14 @@ def download_pdf_from_pmc(pmcid, download_dir):
             driver.get(pdf_url)
             time.sleep(3)  # wait for PDF to load
 
-            print(f"✅ Downloaded {pmcid}")
+            print(f" Downloaded {pmcid}")
             return True
         except NoSuchElementException:
-            print(f"❌ No PDF found for {pmcid}")
+            print(f" No PDF found for {pmcid}")
             return False
 
     except Exception as e:
-        print(f"⚠️ Error with {pmcid}: {e}")
+        print(f" Error with {pmcid}: {e}")
         return False
 
 
@@ -91,4 +87,4 @@ if __name__ == "__main__":
         download_pdf_from_pmc(pmcid, download_dir)
 
     driver.quit()
-    print("✅ All downloads complete.")
+    print(" All downloads complete.")
