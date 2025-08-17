@@ -1,38 +1,94 @@
 import os
+import re
+import time
 import pandas as pd
-import requests
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.common.exceptions import NoSuchElementException
 
-def download_pdf(pmc_id, save_dir):
-    os.makedirs(save_dir, exist_ok = True)
+# -------------------------------
+# Utility functions
+# -------------------------------
 
-    url = f"https://www.ncbi.nlm.nih.gov/pmc/articles/{pmc_id}/pdf/"
+def is_valid_pmcid(pmcid: str) -> bool:
+    """Check if a string is a valid PMCID like PMC1234567"""
+    return bool(re.match(r"^PMC\d+$", pmcid))
+
+
+def get_pmcids_from_csv(csv_path, pmc_column="PMC_ID"):
+    """Read CSV and extract only valid PMCIDs (handles encoding issues)."""
+    try:
+        df = pd.read_csv(csv_path, encoding="utf-8")
+    except UnicodeDecodeError:
+        df = pd.read_csv(csv_path, encoding="latin1")  # fallback
+
+    if pmc_column not in df.columns:
+        raise ValueError(f"CSV does not have a column named '{pmc_column}'")
+
+    valid_pmcids = [
+        str(pmc).strip()
+        for pmc in df[pmc_column].tolist()
+        if is_valid_pmcid(str(pmc).strip())
+    ]
+    return valid_pmcids
+
+
+def download_pdf_from_pmc(pmcid, download_dir):
+    """Open PMC page and download PDF if available."""
+    url = f"https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/pdf/"
 
     try:
-        response = requests.get(url, stream = True , timeout = 20)
+        driver.get(url)
+        time.sleep(2)  # wait for page load
 
-        if response.status_code == 200 and "application/pdf" in response.headers.get("Content-Type", ""):
-            filepath = os.path.join(save_dir, f"{pmc_id}.pdf")
-            with open(filepath, "wb") as f:
-                for chunk in response.iter_content(chunk_size=1024):
-                    if chunk:
-                        f.write(chunk)
+        try:
+            pdf_button = driver.find_element(By.LINK_TEXT, "PDF")
+            pdf_url = pdf_button.get_attribute("href")
 
-            print(f"[+] PDF saved: {filepath}")
-            return filepath
-        else:
-            print(f"[-] No PDF available for {pmc_id} (Status: {response.status_code})")
-            return None
-        
+            driver.get(pdf_url)
+            time.sleep(3)  # wait for PDF to load
+
+            print(f"✅ Downloaded {pmcid}")
+            return True
+        except NoSuchElementException:
+            print(f"❌ No PDF found for {pmcid}")
+            return False
+
     except Exception as e:
-        print(f"[!] Error downloading PDF for {pmc_id}: {e}")
-        return None 
-    
+        print(f"⚠️ Error with {pmcid}: {e}")
+        return False
+
+
+# -------------------------------
+# Main script
+# -------------------------------
 
 if __name__ == "__main__":
-    pmc_csv = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\pmc_ids.csv"
-    pmc_df = pd.read_csv(pmc_csv)
+    # Path to your CSV
+    csv_path = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\data.csv"
 
-    pdf_output_dir = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\pdfs"
+    # Directory for downloaded PDFs
+    download_dir = os.path.join(os.getcwd(), "pmc_pdfs")
+    os.makedirs(download_dir, exist_ok=True)
 
-    for pmc_id in pmc_df["PMC_ID"]:
-        download_pdf(pmc_id, pdf_output_dir)
+    # Set up Selenium (Chrome)
+    chrome_options = Options()
+    chrome_options.add_experimental_option("prefs", {
+        "download.default_directory": download_dir,
+        "plugins.always_open_pdf_externally": True  # force download instead of opening in Chrome
+    })
+    service = Service()
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+
+    # Extract PMCIDs
+    pmc_ids = get_pmcids_from_csv(csv_path, pmc_column="PMC_ID")
+    print(f"Found {len(pmc_ids)} PMCIDs in CSV")
+
+    # Loop through and download
+    for pmcid in pmc_ids:
+        download_pdf_from_pmc(pmcid, download_dir)
+
+    driver.quit()
+    print("✅ All downloads complete.")
