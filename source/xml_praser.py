@@ -1,9 +1,7 @@
 import xml.etree.ElementTree as ET
 
 def parse_xml(xml_text):
-    """
-    Parse BioC XML and return metadata and sections.
-    """
+  
     try:
         root = ET.fromstring(xml_text)
     except Exception as e:
@@ -17,7 +15,7 @@ def parse_xml(xml_text):
     date = ""
     license_use = ""
 
-    #  To extract DOI, license, year
+
     for infon in root.iter("infon"):
         key = infon.attrib.get("key", "")
         text = infon.text or ""
