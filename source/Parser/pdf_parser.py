@@ -1,5 +1,9 @@
 from PyPDF2 import PdfReader
 import os
+import pandas as pd
+
+df = pd.DataFrame()
+df = df.columns({"Title": [] , "Authors": [] , "Date Published" :[], "Subject" : [] })
 
 folder_path = "C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\pmc_pdfs"
 
@@ -16,5 +20,7 @@ for file in os.listdir(folder_path):
         meta = len(reader.metadata)
         print(f"Processing : {file}")
         print(f"Processing : (metadata)")
+
+        #Collect all the metadata into lists 
         
         
