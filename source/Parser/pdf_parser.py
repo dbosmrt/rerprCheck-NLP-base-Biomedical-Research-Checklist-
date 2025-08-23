@@ -22,5 +22,7 @@ for file in os.listdir(folder_path):
         print(f"Processing : (metadata)")
 
         #Collect all the metadata into lists 
+    except Exception as e:
+        print(f"There was some error in processing {file}.")
         
         
