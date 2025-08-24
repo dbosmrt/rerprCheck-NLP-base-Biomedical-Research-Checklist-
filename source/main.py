@@ -1,6 +1,5 @@
 import pandas as pd
 from pmc_api import fetch_pmc_xml
-from unpaywall import open_access
 from xml_praser import parse_xml
 
 pmc_csv = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\pmc_ids.csv"
