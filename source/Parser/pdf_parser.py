@@ -8,7 +8,7 @@ df = pd.DataFrame({"File Name": [],"Title": [], "Authors": [], "Date Published":
 folder_path = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\pmc_pdfs"
 
 # Lists to store metadata for all PDFs
-filenames = []  # Fixed: renamed from 'filename' to 'filenames'
+filenames = [] 
 titles = []
 authors = []
 dates = []
@@ -29,14 +29,13 @@ for file in os.listdir(folder_path):
             print(f"Pages: {num_pages}")
             
             # Extract metadata safely (handle None values)
-            # Removed: filename = file  # This was overwriting the list!
             title = meta.title if meta and meta.title else "Unknown"
             author = meta.author if meta and meta.author else "Unknown"
             creation_date = meta.creation_date if meta and meta.creation_date else "Unknown"
             subject = meta.subject if meta and meta.subject else "Unknown"
             
             # Add to lists
-            filenames.append(file)  # Fixed: use the list name, not overwrite it
+            filenames.append(file) 
             titles.append(title)
             authors.append(author)
             dates.append(str(creation_date))
@@ -49,7 +48,7 @@ for file in os.listdir(folder_path):
         except Exception as e:
             print(f"Error processing {file}: {str(e)}")
             # Add empty values for failed files if you want to track them
-            filenames.append(file)  # Fixed: still add the filename even on error
+            filenames.append(file)
             titles.append("Error")
             authors.append("Error")
             dates.append("Error")
@@ -57,7 +56,7 @@ for file in os.listdir(folder_path):
 
 # Create DataFrame from collected data
 df = pd.DataFrame({
-    "File Name": filenames,  # Fixed: use the correct list name
+    "File Name": filenames,
     "Title": titles,
     "Authors": authors,
     "Date Published": dates,
