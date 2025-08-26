@@ -1,3 +1,4 @@
+#Import the Libraries
 from PyPDF2 import PdfReader
 import os
 import pandas as pd
@@ -5,6 +6,7 @@ import pandas as pd
 # Create empty DataFrame
 df = pd.DataFrame({"File Name": [],"Title": [], "Authors": [], "Date Published": [], "Subject": []})
 
+#Set the folder path 
 folder_path = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\pmc_pdfs"
 
 # Lists to store metadata for all PDFs
@@ -54,7 +56,7 @@ for file in os.listdir(folder_path):
             dates.append("Error")
             subjects.append("Error")
 
-# Create DataFrame from collected data
+# Create dataframe from collected data
 df = pd.DataFrame({
     "File Name": filenames,
     "Title": titles,
@@ -69,5 +71,3 @@ df.to_csv(output_file, index=False)
 
 print(f"Saved metadata for {len(df)} PDFs to {output_file}")
 print(f"DataFrame shape: {df.shape}")
-print("\nFirst few rows:")
-print(df.head())
