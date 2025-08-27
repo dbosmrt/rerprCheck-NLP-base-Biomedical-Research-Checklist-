@@ -1,0 +1,659 @@
+B
+
+R
+
+AIN COMMUNICATIONS
+
+https://doi.org/10.1093/braincomms/fcaf276
+
+BRAIN COMMUNICATIONS 2025: fcaf276
+
+Latent dimension linking functional connectivity with post-stroke deficits across multiple domains Ke Wu,1 Yaya Jiang,2 Junhao Luo,1,3,4 Yijun Chen,5 Shaoling Peng,6 Xiangyu Kong1 and Gaolang Gong1,7,8
+
+Stroke often leads to multiple behavioural impairments. Understanding the neural basis of these deficits is essential for elucidating the mechanisms of functional impairments and optimising therapeutic strategies for stroke patients. Although many studies have revealed that specific behavioural deficits are related to disruptions in distributed functional connectivity across brain networks, these studies typically focus on single behavioural traits, overlooking the multivariate characteristics of deficits after stroke. Recent studies have demonstrated that deficits within and across domains are highly correlated, suggesting a complex many-to-many mapping between brain and behaviour following stroke. Thus, the present study aims to identify meaningful multivariate patterns of functional connect- ivity–behaviour covariation following stroke. Specifically, we employed a multivariate data-driven approach, partial least squares correlation, to examine the relationships between whole-brain functional connectivity and an extensive array of neurological scores (including motor, attention, verbal memory, spatial memory and language domains) in a large cohort of stroke patients at 2 weeks (n = 81), 3 months (n = 78) and 12 months (n = 74) post-injury. This multivariate analysis revealed a significant latent component (LC) from 2-week post-stroke data, capturing a unique pattern of cognitive deficits across multiple domains. This pattern was strongly associated with widespread network dysfunction, characterized by decreased interhemispheric connectivity and increased intrahemi- spheric connectivity. Notably, the identified LC was replicated and generalized to stroke data at the 3-month and 12-month time points. Furthermore, we examined whether structural lesion features, including structural disconnection of white matter pathways and grey matter damage, could explain variance in the identified LC. Structural disconnection outperformed grey matter damage, highlighting its critical role in the functional connectivity–behaviour relationship following stroke. Mediation analysis confirmed that structural disconnection serves as the neuroanatomical basis for the association between functional connectivity and deficits. Overall, this study suggests that stroke-induced white matter disconnections are associated with widespread and consistent disrup- tions in brain network connectivity, which are reflected in a highly correlated behavioural profile. These results provide an integrative insight into the complex relationships among lesions, functional networks, and behavioural outcomes following stroke.
+
+1 State Key Laboratory of Cognitive Neuroscience and Learning & IDG/McGovern Institute for Brain Research, Beijing Normal
+
+University, Beijing 100875, China
+
+2 Artificial Intelligence and Language Cognition Laboratory, Beijing International Studies University, Beijing 100024, China 3 Shenzhen CyberAray Network Technology Co., Ltd, Shenzhen 518038, China 4 Harbin Institute of Technology (Shenzhen), Shenzhen 518055, China 5 Department of Psychology, Georgetown University, Washington, DC 20057, USA 6 Department of Neurology, Boston Children’s Hospital, Harvard Medical School, Boston, MA 02115, USA 7 Beijing Key Laboratory of Brain Imaging and Connectomics, Beijing Normal University, Beijing 100875, China 8 Chinese Institute for Brain Research, Beijing 102206, China
+
+Correspondence to: Gong Gaolang State Key Laboratory of Cognitive Neuroscience and Learning & IDG/McGovern
+
+Received November 19, 2024. Revised June 10, 2025. Accepted July 18, 2025. Advance access publication July 22, 2025 © The Author(s) 2025. Published by Oxford University Press on behalf of the Guarantors of Brain. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.
+
+| 1
+
+2
+
+| BRAIN COMMUNICATIONS 2025, fcaf276 K. Wu et al.
+
+Institute for Brain Research, Beijing Normal University Beijing 100875, China E-mail: gaolang.gong@bnu.edu.cn
+
+Keywords: stroke; functional connectivity; recovery; lesion; structural disconnection
+
+Graphical Abstract
+
+Introduction Stroke is one of the leading causes of disability and death worldwide. Stroke patients generally suffer from behaviour- al deficits in multiple domains, e.g. motor, language, atten- tion, and executive functions.1-4 The occurrence of multiple deficits reflects not merely structural damage at the injury site,5,6 but also widespread dysfunction within and between networks.7-11 Elucidating the associations be- tween brain functional networks and behavioural perform- ance across multiple domains in stroke patients is crucial for understanding the mechanisms of neurological disorders and improving the treatment strategies.12,13
+
+Functional magnetic resonance imaging (fMRI) during the performance of specific tasks, e.g. motor, language, and at- tention, has been widely applied in the study of stroke
+
+patients, shedding light on functional abnormalities or re- organisation following stroke.11,14,15 However, this tech- nique has certain limitations when used in stroke studies. First, task-based fMRI studies often exclude stroke patients with severe functional deficits due to their inability to com- plete experimental tasks designed for healthy individuals.14 This selection bias may limit the generalizability of findings to the broader stroke population. Moreover, activation para- digms refer to task-based designs that probe specific func- tional systems, but are typically optimized for intact neural circuits following stroke.16,17 Additionally, task-evoked studies provide lim- ited information about temporal interactions between re- gions or networks.16 Resting-state functional MRI has emerged as a powerful tool to map the functional network connectivity of damaged brains by measuring the temporal
+
+rather
+
+than
+
+reorganized
+
+systems
+
+FC-deficit associations after stroke BRAIN COMMUNICATIONS 2025, fcaf276
+
+correlation of blood oxygen level-dependent (BOLD) signals across brain regions at rest [resting-state functional connect- ivity (RSFC)].18,19 Studies have demonstrated that severity of neglect symptoms in hemispatial neglect patients is corre- lated with FC alteration within and between (i.e. interac- tions) multiple resting-state networks other than specific attention networks.8,20,21 A subsequent study explored FC–deficit relationships across six behavioural domains (attention, spatial memory, verbal memory, language, motor and visual) in a large, heterogeneous cohort of stroke patients and revealed that each deficit was predicted by a common RSFC pattern characterized by decreased interhe- mispheric connectivity and increased intrahemispheric con- nectivity.22 Together, these lines of study indicate that RSFC offers crucial insights into the functional network or- ganisation associated with different domains of behavioural performance after stroke.
+
+Notably, most resting-state fMRI studies have used univari- ate correlation or multivariate regression approaches to high- light that behavioural dysfunction in a specific domain or task is related to FC disruptions across multiple networks, but they often neglected the potential correlations between behav- ioural dysfunctions across multiple domains or tasks and FC disruptions across multiple networks.8,20-25Evidence at the be- havioural level has demonstrated that focal and diffuse strokes do not typically cause highly specific and distinct syndromes or symptoms but instead result in deficits that are closely corre- lated both within and between behavioural domains at the population level.23,24,26 Traditional explanations for this phe- nomenon suggest that strokes occur within vascular territories involving multiple functional areas.12But correlated deficits have also been observed between regions without obvious vas- cular overlap. For example, language and spatial memory def- icits are significantly correlated (r = 0.59), despite being localized to different hemispheres.23 Another plausible explan- ation is the correlation of multiple deficits coupled with wide- spread and consistent disruption in network connectivity, as evidenced by the interdependent recovery of deficits across mul- tiple domains.12,13,24 This argument supports many-to-many mapping between behavioural deficits and functional network connectivity after stroke. However, until recently, few neuroi- maging studies have simultaneously investigated both the multivariate characteristics of behavioural deficits and the multivariate features of functional network connectivity to identify meaningful patterns of FC-behaviour covariation after stroke.
+
+deficits dependent on the normalisation of abnormal network connectivity.21 On this basis, we hypothesized that the behav- iour–connectivity covariance patterns would be maintained from the acute to the chronic stage. Furthermore, post-stroke structural brain lesions, including grey matter damage or white matter disconnection, are closely associated with widespread FC abnormalities and multiple behavioural deficits.33-35 However, few studies have explored the complete relationship linking structural damage to widespread FC disruptions and multidomain behavioural deficits. To address this gap, we con- ducted mediation analyses to deepen the understanding of the relationships among these three variables.
+
+Materials and methods Dataset The data used in this study are part of the Washington Stroke Cohort.22-24 The dataset includes 132 patients with a first symptomatic stroke, who were assessed at 2 weeks after stroke onset. Of these, 103 and 88 returned for the subse- quent measurements at 3 and 12 months, respectively. A healthy control (HC) group (n = 31), matched with the study sample for age, gender and years of education, was assessed twice at 3-month intervals. Written informed consent was obtained from all participants in accordance with the Declaration of Helsinki and procedures established by the Washington University in Saint Louis Institutional Review Board. All aspects of this study were approved by the Washington University School of Medicine Internal Review Board.
+
+The inclusion criteria of present study were as follows: is- chaemic or haemorrhagic stroke, and clinical evidence of motor, language, attention, visual, or memory deficits based on neurological examination. The exclusion criteria were as follows: (i) participants with data missing from more than one behavioural domain; (ii) bilateral lesions; and (iii) poor- quality T1-weighted images and fMRI data. Finally, 81 pa- tients were eligible at 2 weeks, 78 at 3 months, and 76 at 12 months; 28 and 26 controls were eligible at the first and second assessments, respectively (Table 1).
+
+In this study, we employed partial least squares correlation (PLSC) analysis, a multivariate data-driven approach, to exam- ine the relationships between whole-brain FC and an extensive array of neurological assessment scores. This analysis allows multivariate brain features to be mapped to multivariate behav- ioural variables in a single integrated analysis, thereby avoiding the pitfall of focusing on a single a priori behavioural aspect, which hides the overall picture.27-32Additionally, we examined whether the latent component (LC) identified in the 2-week stroke data remained stable throughout the recovery process. Previous studies have suggested the recovery of post-stroke
+
+Neuropsychological assessment The neuropsychological battery comprised 41 behavioural scores across five behavioural domains: language, attention, verbal memory, spatial memory, and motor function. Detailed descriptions of the behavioural tests are available in the Supplementary Table 1. To determine whether the missing data were missing completely at random (MCAR) or not, we conducted Little’s MCAR test.36 The test yielded a statistically significant result (P < 0.001), indicating that the missing data were not completely random. In this con- text, we adopted a mean imputation strategy that preserves as much information as possible while maintaining the integ- rity of the analysis.
+
+| 3
+
+4
+
+| BRAIN COMMUNICATIONS 2025, fcaf276 K. Wu et al.
+
+Table 1 Demographic data of participants in the present study
+
+Stroke patients
+
+Control healthy
+
+2 weeks
+
+3 months
+
+12 months
+
+Visit 1
+
+Visit 2
+
+Number Age Gender (M/F) Education (years) Handedness (R/L) Lesion type (ischaemic/haemorrhagic) Lesion side (R/L) Lesion size (cm3)
+
+81 52.2 ± 11.4 48/33 13.4 ± 2.6 73/8 68/13 38/43 3.29 ± 5.27
+
+78 53.8 ± 10.6 45/33 13.3 ± 2.4 72/6 56/14 35/43 3.2 ± 4.6
+
+74 54.1 ± 9.7 43/31 13.6 ± 2.5 68/6 64/10 34/40 2.8 ± 3.5
+
+28 55.1 ± 12.3 13/15 13.4 ± 2.6 27/1
+
+26 55.7 ± 11.8 16/12 13.5 ± 11.8 24/2
+
+Neuroimaging data collection Images across various modalities, including structural, function- al, pulsed arterial spin labelling (PASL), and diffusion tensor scans, were acquired using a Siemens 3T Tim-Trio scanner with a 12-channel head coil. Structural scans included sagittal T1-weighted MP-RAGE [repetition time (TR) = 1950 msec, echo time (TE) = 2.26 msec, flip angle = 90°, voxel size = 1.0× 1.0× 1.0 mm], transverse T2-weighted turbo spin echo (TR = 2500 msec, TE = 435 msec, voxel size = 1.0× 1.0× 1.0 mm) and sagittal fluid attenuated inversion recovery (FLAIR) (TR = 7500 msec, TE = 326 msec, voxel size = 1.5× 1.5× 1.5 mm). The PASL acquisition parameters were as follows: TR = 2600 msec, TE = 13 msec, flip angle = 90°, bandwidth = 2.232 kHz/Px, and field of view (FoV) = 220 mm; 120 volumes were acquired (322 s total), each containing 15 slices with slice thick- nesses of 6 mm and gaps of 23.7 mm. Resting-state functional scans were acquired with a gradient echo planar imaging se- quence (TR = 2000 msec, TE = 27 msec, 32 contiguous 4-mm slices, 4× 4 mm in-plane resolution). The participants fixated on a small cross in a low-luminance environment. A total of six to eight fMRI scans, each consisting of 128 volumes, were col- lected over approximately 30 min.
+
+Lesion identification Lesions were manually segmented on individual structural MR images with the Analyze biomedical imaging software system.37 The T1-weighted, T2-weighted, and T2-FLAIR scans were used together to ensure accurate lesion delinea- tion. Two board-certified neurologists reviewed all the seg- mentations, and an additional neurologist confirmed all the segmentations. For haemorrhagic strokes, oedema was in- cluded in the lesion. The final segmentations were used as binary lesion masks for subsequent processing and analysis steps. Lesion masks were transformed to Montreal Neurological Institute atlas space via a combination of linear transformations and non-linear warps and were resampled to achieve isotropic voxel resolution.
+
+asynchronous interpolation; (iii) whole-brain intensity normalisation to achieve a mode value of 1000; (iv) spatial realignment within and across functional MRI runs; and (v) cross-modal image registration and normalisa- tion. In the fifth step, functional MRI volumes from each time point were transformed from native space to standard space via deformation fields obtained from our previous longitudinal voxel-based morphometry analyses.38
+
+slice acquisition via
+
+sinc
+
+In preparation for the FC analysis, data underwent several additional preprocessing steps: (i) spatial smoothing consist- ing of a 6 mm full-width at half-maximum Gaussian blur in each direction; (ii) temporal filtering retaining frequencies in the 0.009–0.08 Hz band; (iii) regression of head motion, sig- nals from ventricles and cerebrospinal fluid, signals from white matter, and the global signal; (iv) scrubbing using the DVARS measure; and (v) removal of the mean signal in- tensity over the run. Notably, the calculation of the brain sig- nal in the third step did not consider the signal of the lesion location.
+
+FC features We used the Gordon 333 cortical parcellation and network community assignments to obtain region-level and network- level measures of FC. This parcellation was based on FC bound- ary mapping and InfoMap community detection analyses of resting-state fMRI data from 120 healthy individuals.39A total of 333 regions of interest (ROIs) assigned to 13 large-scale func- tional networks were used for subsequent estimation of FC. Region-wise FC matrices were constructed by correlating the average nuisance-regressed BOLD time series of each region with the average nuisance-regressed BOLD time series of every other region and applying the Fisher z-transformation to the re- sulting linear correlation values. For each patient, voxels that fell within the boundaries of the lesion were masked out, and regions with more than 50% lesion overlap were excluded from all analyses, in accordance with previous reports.40
+
+fMRI data preprocessing Resting-state fMRI preprocessing consisted of (i) removal of the first four frames and brain extraction; (ii) compensation for
+
+Structural lesion features Structural lesion features included region-based damage and region-based structural disconnection (SDC). Region-based damage was calculated as the percentage of voxels within grey matter regions overlapping with the lesion, creating a
+
+FC-deficit associations after stroke BRAIN COMMUNICATIONS 2025, fcaf276
+
+1-dimensional vector. This measure quantifies the damage to predefined brain regions rather than individual voxels. Region-based SDC was defined as the proportion of stream- lines connecting two regions that were disrupted by the le- sion, which was determined with the Lesion Quantification Toolkit (LQT). The LQT incorporates a publicly available diffusion MRI streamline tractography atlas to create a structural connectome template.41 On the basis of 333 cor- tical parcellation inputs and the Human Connectome Project-842 tractography atlas, a 333×333 region-wise structural connectome was created. By embedding the lesion into the atlas-derived structural connectome, the LQT gener- ated a 333×333 SDC matrix where each value represents the severity of lesion-induced disruption in structural connectiv- ity between two brain parcels. Before conducting the statis- tical analyses, the upper triangles (excluding diagonal elements) of the disconnection matrices were extracted and reshaped into a 1-dimensional vector.
+
+Statistical analysis PLSC analysis We used PLSC analysis to examine the relationships between whole-brain FC and multiple neurological measures across five behavioural domains (Fig. 1). Both sets of variables were correlated with each other across participants, and the resulting covariance matrix was subjected to singular va- lue decomposition to reveal the latent brain–behaviour com- ponents. Each LC comprised an RSFC pattern at the node level (RSFC saliences) and a profile of behavioural deficits (behavioural saliences). Individual-specific RSFC and behav- ioural composite scores for each LC were obtained by linear- ly projecting the original RSFC and behavioural data of each participant onto their respective saliences.
+
+We also used PLSC analysis to examine the relationships between region-based SDCs and multiple-domain neuro- logical variables. For further details, refer to the above ana- lysis. To visualize the SDC loadings, the top 20% of loadings for LC1 were mapped onto the brain to display the most pre- dictive SDCs using BrainNet Viewer. To assess whether LC1 from the SDC–deficits PLSC model corresponds to LC1 from the FC–deficits PLSC model, we calculated the Pearson cor- relation coefficient between the LC1 behavioural/RSFC loadings of both models.
+
+Multivariate ridge regression with structural lesion features To understand the anatomical basis of the FC–deficit LC, we used a ridge regression machine learning algorithm to ex- plore whether structural lesion features could predict FC or behavioural composite scores obtained from the first PLSC analysis. The structural lesion features included region-based SDC measures and region-based lesion damage. Features with zero values across all participants were removed from the analysis. All ridge regression models were trained and tested via leave-one-out cross-validation (LOOCV). In each loop, the regularisation coefficient alpha was optimized by identifying a value between α = 2−10 and 25 that minimized leave-one-out prediction error over the training set. Next, optimal weights were calculated across the entire training set via gradient descent to minimize error in the ridge regres- sion equation. These optimal weights were then applied to the SDC/lesion features of the left-out participants to predict behavioural or RSFC composite scores. A prediction was generated for all participants with this procedure. Model performance was evaluated by calculating Pearson’s correl- ation coefficient between the measured and predicted com- posite scores.
+
+We computed Pearson’s correlations between partici- pants’ composite scores and the original data, referred to as loadings, to interpret the contribution of each variable to the LCs.27,42 A strong positive or negative correlation for a specific behavioural measure in a given LC indicates the greater significance of that behavioural measure to the LC. Likewise, a large positive (or negative) correlation for a specific RSFC measure in a given LC highlights the import- ance of the RSFC measure.
+
+A permutation test (1000 permutations) was used to de- individual LC.43 termine Additionally, bootstrap resampling (1000 bootstraps) was employed to estimate CIs of the behavioural and RSFC load- ings. Procrustes rotation was applied to the LCs obtained from the permutation and bootstrap analyses to ensure alignment with those from the original analyses.43,44 Bootstrapped z scores were calculated by dividing each load- ing by its bootstrap standard deviation, and then the z scores were converted to P values. Prior to this, bootstrapped RSFC loadings were averaged across ROI pairs within and between 26 networks (left: 13; right: 13), resulting in 26× 26 correl- ation matrices to limit the number of multiple comparisons.
+
+the
+
+significance of each
+
+Mediation analysis among the RSFC, SDC and behaviour composite scores We used mediation analysis to explore the complex relation- ships among SDC, RSFC and behaviours. In the first mediation analysis, the RSFC composite scores from the FC–deficit PLSC model were defined as the mediator variable, the SDC composite scores from the SDC–deficit PLSC model were defined as the independent variable, and the behavioural composite scores from both PLSC models were defined indi- vidually as the dependent variable. In the second mediation analysis, the SDC composite scores were defined as the medi- ator variable, the FC composite scores were defined as the in- dependent variable, and the behavioural composite scores were defined individually as the dependent variable. Theoretically, the relationship between the SDC and behav- iour is mediated by large-scale functional connectivity dis- ruptions. Therefore, we hypothesized that the mediation effect would be significant in the first analysis but not in the second.
+
+We employed a non-parametric bootstrapping method to assess the significance of the mediation effect. After 10 000 bias-corrected bootstraps, we estimated the distribution of
+
+| 5
+
+6
+
+| BRAIN COMMUNICATIONS 2025, fcaf276 K. Wu et al.
+
+, s t u p n
+
+i
+
+n i a r b r o F
+
+.
+
+x i r t a m r u o i v a h e b a d n a x i r t a m C F n i a r b - e o h w a
+
+l
+
+f
+
+o t s i s n o c l
+
+e d o m C S L P e h t o t
+
+s t u p n
+
+i
+
+e h t
+
+, s n o i t a i c o s s a
+
+r u o i v a h e b – n i a r b g n i r o p x e f
+
+l
+
+o t x e t n o c e h t n I
+
+.
+
+C S L P
+
+f o m a r g a i D 1 e r u g F
+
+i
+
+s i h t
+
+f
+
+o ) s t n e m e e
+
+l
+
+l a n o g a i d g n d u l c x e (
+
+i
+
+s e l g n a i r t
+
+r e p p u e h t d n a
+
+, t c e b u s h c a e r o
+
+j
+
+f d e t c u r t s n o c
+
+s i
+
+x i r t a m C F n i a r b - e o h w A
+
+l
+
+. s n o i t a l l
+
+e c r a p
+
+l a c i t r o c d e n fi e d e r p m o r f d e t c a r t x e e r a
+
+s e i r e s e m
+
+i t
+
+l a n g i s D L O B
+
+d n a
+
+y r o m e m
+
+l a b r e v
+
+,
+
+n o i t n e t t a
+
+,
+
+e g a u g n a l
+
+, r o t o m e h t
+
+g n n n a p s
+
+i
+
+s t n e m
+
+s s e s s a
+
+s u o i r a v
+
+g n d u l c n
+
+i
+
+i
+
+, t c e b u s h c a e r o
+
+j
+
+f
+
+a t a d
+
+l
+
+e v e l -
+
+m e t i
+
+, s t u p n
+
+i
+
+r u o i v a h e b r o F
+
+. r o t c e v
+
+l a n o i s n e m d - e n o a o t n
+
+i
+
+i
+
+d e p a h s e r
+
+s i
+
+x i r t a m
+
+d n a C F
+
+e h t
+
+n
+
+i
+
+s e b a i r a v
+
+l
+
+e h t
+
+f
+
+o s n o i t a n b m o c
+
+i
+
+r a e n
+
+i l
+
+t n e s e r p e r
+
+h c i h w
+
+, s e c n e
+
+i l a s
+
+l a r u o i v a h e b
+
+d n a
+
+s e c n e
+
+i l a s C F
+
+s e fi i t n e d
+
+i
+
+e d o m e h T
+
+. l
+
+e d o m C S L P
+
+e h t
+
+o t n
+
+i
+
+d e t a r o p r o c n
+
+e r a
+
+, s n i a m o d
+
+y r o m e m
+
+l a i t a p s
+
+s e c n e
+
+i l a s e s e h t d e z i m
+
+i t p o
+
+l
+
+e d o m e h T
+
+.
+
+d e v i r e d e r a s e r o c s e t i s o p m o c r u o i v a h e b d n a C F
+
+l a u d i v i d n
+
+, s e c n e
+
+i l a s e v i t c e p s e r
+
+r i e h t o t n o a t a d r u o i v a h e b d n a C F
+
+l a n i g i r o e h t g n i t c e o r p y B
+
+j
+
+. s e c i r t a m r u o i v a h e b
+
+. s e r o c s
+
+e t i s o p m o c
+
+l a r u o i v a h e b
+
+e h t
+
+d n a
+
+s e r o c s
+
+e t i s o p m o c
+
+n i a r b
+
+e h t
+
+n e e w t e b
+
+e c n a i r a v o c
+
+e h t
+
+e z i m x a m o t
+
+i
+
+FC-deficit associations after stroke BRAIN COMMUNICATIONS 2025, fcaf276
+
+the indirect effect and calculated its 95% confidence interval (CI). A mediation effect was considered significant (P < 0.05) if the 95% CI did not contain zero. As mediators and depend- ent variables were assessed simultaneously, the mediation re- sults should be interpreted as statistical associations rather than causal effects.
+
+Control and reliability analysis Several analyses were performed to ensure the robustness of our results. First, we constructed networks on the basis of an alternative parcellation developed by Yan et al.45 to demon- strate the robustness of the results independent of parcella- tion choices. FC was computed for 400 cortical regions in 7 large-scale networks. Second, we performed LOOCV of the PLSC analysis. In each fold, one patient was selected as the test set, while the remaining patients were selected as the training set. For the training set, PLSC was computed to obtain brain and behavioural saliences. We subsequently computed the brain and behavioural composite scores of the test patients by projecting the test data onto the saliences derived from the training data. Each patient served as a test patient in 1-fold of the analysis. We subsequently computed Pearson’s correlations between the brain and behavioural composite scores of test patients across all folds and tested the statistical significance of these correlations via a permu- tation test (1000 times). Third, we also conducted internal validation by randomly splitting the dataset into two inde- pendent subsets (41 and 40 participants, respectively) and performing separate PLSC analyses on each subset. Fourth, to reduce feature dimensionality and ensure the robustness of our findings, we employed two distinct approaches. Principal component analysis (PCA) was used to reduce the dimensionality of input features prior to partial least squares (PLS) analysis. Sparse PLS (SPLS) embedded L1-norm regu- larisation into the PLS framework to enable automatic fea- ture selection. Finally, we regressed out the confounding effects, including age, sex, ethnicity, lesion types and smok- ing status from both the brain and behaviour data before the PLSC analysis.
+
+Results One robust LC links RSFC and behaviour 2 weeks after stroke We conducted PLSC analysis on whole-brain RSFC data and 41 neuropsychological measures collected 2 weeks after stroke. Given that only the first latent component (LC1) sur- vived permutation testing with false discovery rate (FDR) correction (q < 0.05), LC1 is the focus of the remainder of this article. LC1 accounted for 38.8% of the covariance be- tween the RSFC and behavioural data, with a significant as- sociation (r = 0.76, P < 0.001) between the behavioural and RSFC composite scores (Fig. 2A and B).
+
+Figure 2C shows the top correlations between the behav- ioural composite scores of LC1 and the 30 significant
+
+behavioural measures (thresholded behavioural loadings). A greater behavioural composite score was associated with greater general-domain behavioural performance (e.g. atten- tion, verbal memory, spatial memory, language, motor). Unthresholded behavioural and RSFC loading patterns are shown in Supplementary Fig. 1. Notably, the accuracy of dis- engagement effect in the Posner orienting task showed a positive correlation, in contrast to the predominantly nega- tive trend among other attention-domain measures. Figure 2D illustrates the significant correlations between the RSFC composite scores of LC1 and the RSFC among 333 cortical parcellations (thresholded RSFC loadings). The significant RSFC loadings were averaged within and be- tween networks (Fig. 2E). A greater RSFC composite score was associated with increased interhemispheric RSFC within the sensorimotor (visual, auditory and somatomotor), cingu- lo–opercular, and attention networks. Conversely, a greater composite score was associated with decreased intrahemi- spheric connectivity between the default mode network or frontoparietal network and other networks. We further summed the RSFC loadings for each region in the Gordon at- las to represent the relative importance of each region in the significant RSFC pattern (Fig. 2F). The FC pattern of general-domain deficits followed the hierarchy gradient of cortical organisation (Fig. 2G). In other words, post-stroke behavioural performance was associated with divergent modu- lation of FC across cortical hierarchies between higher-order cognitive networks and lower-order sensorimotor regions.
+
+Replicability and generalizability across stroke stage The LC1 identified from 2-week stroke data was further vali- dated with stroke data at 3-month and 12-month time points. We applied PLSC to whole-brain RSFC and 41 neuropsycho- logical assessments at 3-month and 12-month points. The PLSC analysis consistently revealed that LC1 was significant at both time points (3-month: r = 0.82, permuted P = 0.018; 12-month: r = 0.79, permuted P = 0.023), explaining 23.0%, 23.2% of covariance between the brain and behavioural (Supplementary Fig. 2A and B). data, Importantly, the LC1 obtained from 3-month and 12-month stroke data largely replicated the LC1 identified from 2-week stroke data. This is evidenced by the high correlation between behavioural saliences in the 2-week and 3-month stroke data (r = 0.84, P < 0.001), between behavioural saliences in the 2-week and 12-month stroke data (r = 0.77, P < 0.001), be- tween RSFC saliences in the 2-week and 3-month stroke data (r = 0.45, P < 0.001), between RSFC saliences in the 2-week and 12-month stroke data (r = 0.55, P < 0.001) (Fig. 3A and B). The correlation results of loadings were con- sistent with the results of saliences (Supplementary Fig. 3).
+
+respectively
+
+We further performed a cross-stage validation analysis by projecting stroke data at 3 months and 12 months onto the salience parameters learned by PLS in stroke data at 2 weeks, and then calculated the correlation between the behavioural and RSFC composite scores in projected data. We found that
+
+| 7
+
+8
+
+| BRAIN COMMUNICATIONS 2025, fcaf276 K. Wu et al.
+
+Figure 2 One robust LC linking whole-brain RSFC with multiple neuropsychological scores 2 weeks after stroke. (A) The amount of covariance explained by each LC. Each dot represents an LC, and the red dot represents the first LC, which is the only component that survived after permutation testing with FDR correction (q < 0.05). (B) Correlations between individual-specific RSFC and behavioural composite scores (P < 0.001) (n = 81). The inset shows the null distribution obtained by permutation testing. Note that the null distribution is not centred at zero. The dashed line indicates the actual singular value for LC1. (C) The 30 most significant correlations between behavioural measures and behavioural composite scores. The colours of the bars indicate different behavioural domains. The error bars indicate bootstrapped standard deviations with 1000 bootstrap estimations. (D) Significant correlations between RSFC data and RSFC composite scores; only within-network or between-network blocks with significant bootstrapped Z scores are shown (q < 0.05). Red (or blue) colour indicates that greater RSFC is positively (or negatively) associated with LC1. (E) Correlations between RSFC data and RSFC composite scores of participants, averaged within and between networks with significant bootstrapped Z scores. (F) Summed RSFC loadings for each cortical parcellation to represent the regional importance scores. (G) Correlation between the brain region map of summed RSFC loadings and the principal gradient of functional connectivity in healthy humans69 (P < 0.001). Each dot represents a cortical parcellation (n = 333). Att, attention; AUD, auditory; CON, cingulo-opercular network; CPN, cingulo-parietal network; DAT, dorsal attention; DMN, default mode network; FPN, frontoparietal network; Lan, language; RTN, retrosplenial temporal network; SAL, salience; SMD, somatomotor dorsal; SMem, spatial memory; SMV, somatomotor ventral; VAT, ventral attention; VIS, visual; VMem, verbal memory.
+
+the obtained LC1 from stroke data at 2weeks successfully generalized to 3-month and 12-month stroke data, as evi- denced by a significant correlation between the obtained be- havioural and RSFC composite score (3-month: r = 0.37, P < 0.001; 12-month: r = 0.47, P < 0.001) (Fig. 3A and B).
+
+(Fig. 3C and D). These results suggest the obtained LC1 can only be replicated and generalized using stroke data ra- ther than control data.
+
+Moreover, we applied PLSC to whole-brain RSFC and raw behavioural measures of healthy controls. The first LC was significant for the control group for each visit (visit 1: r = 0.880, permuted P < 0.001; visit 2: r = 0.886, permuted P = 0.025) (Supplementary Fig. 2C and D). But correlations between behavioural and RSFC saliences of the 2-week stroke group and control group were low, indicating the LC1 obtained from the control data is distinct from that of the stroke data (Fig. 3C and D). Moreover, when we pro- jected HC data onto the salience parameters learned by PLS in 2-week stroke data, the correlations between the be- havioural and RSFC composite score were non-significant
+
+Structural disconnection better explains FC–deficit LC1 scores than cortical damage To explore the anatomical basis of LC1, we utilized a ridge regression model to predict the FC–deficit composite scores using region-based lesion damage and SDC. When we pre- dicted the composite scores using SDC, the prediction per- formance was significant, as evidenced by the correlation between the predicted and test composite behavioural scores (r = 0.50, P < 0.001, R2 = 0.25, MAE = 2.01) and between the predicted and test composite RSFC scores (r = 0.61,
+
+FC-deficit associations after stroke BRAIN COMMUNICATIONS 2025, fcaf276
+
+Figure 3 The LC1 obtained from 2-week stroke data was verified with 3-month and 12-month stroke data, as well as HC data. (A) Comparison between 2-week and 3-month stroke data. The left scatter plot shows the Pearson correlation between the behavioural and RSFC composite scores by projecting 3-month stroke data onto the salience parameters learned by PLSC on 2-week stroke data (P < 0.001). Each point represents a 3-month stroke patient (n = 78). The middle scatter plot shows the Pearson correlation between behavioural saliences in the 2-week and 3-month stroke data (P < 0.001). Each point represents a behavioural test. The right scatter plot shows the Pearson correlation between the RSFC saliences in the 2-week and 3-month stroke data (P < 0.001). Each point represents an edge between two cortical regions. (B) Comparison of 2-week and 12-month stroke data. The left scatter plot shows the correlation between the behavioural and RSFC composite scores by projecting 12-month stroke data onto the salience parameters from 2-week stroke data (P < 0.001). Each point represents a 12-month stroke patient (n = 74). The middle scatter plot shows the correlation between behavioural saliences in the 2-week and 12-month stroke data (P < 0.001). The right
+
+| 9
+
+(continued)
+
+10
+
+| BRAIN COMMUNICATIONS 2025, fcaf276 K. Wu et al.
+
+P < 0.001; R2 = 0.37, MAE = 28.11) after LOOCV (Fig. 4A). However, when the composite scores were pre- dicted using focal lesion damage, the prediction performance was not significant, as evidenced by the correlation between the predicted and test composite behaviour scores (r = 0.18, P = 0.11; R2 = −0.59, MAE = 4.67) and between the pre- dicted and test composite RSFC scores (r = 0.26, P = 0.02; R2 = 0.05, MAE = 34.09) after LOOCV (Fig. 4B). SDC fea- tures outperformed lesion damage features in explaining the core mode of covariation between FC and deficits, indicating that SDC of white matter pathways is the primary anatomic- al factor underlying the association between FC and multiple deficits. To characterize the contributions of SDC, the top 20% of the strongest weights were projected back onto the brain (Supplementary Fig. 4), showing that FC–deficit scores were negatively correlated with interhemispheric SDC across most networks, such as the sensorimotor, cingulo–opercular, attention and default networks.
+
+Mediating role of FC in the relationship between SDC and behaviour We conducted PLSC analysis on region-based SDC and 41 neuropsychological measures at the 2-week post-stroke. The PLSC analysis revealed that LC1 was significant (q < 0.05); LC1 accounted for 63.7% of the SDC–deficit covari- ance, with a significant association (r = 0.62, P < 0.001) be- tween the behavioural and SDC composite scores (Fig. 5A and B). Figure 5C shows the top correlations between the be- havioural composite scores and behavioural data of LC1. Figure 5D shows the top 20% of SDC loadings, primarily consisting of interhemispheric SDCs within the sensori- motor, cingulo-opercular, attention and default network. Notably, the behavioural patterns driven by SDC are highly correlated with previous behavioural patterns driven by FC (Fig. 5E), indicating that the LC1 also reflects general cogni- tive performance. The SDC patterns derived from the SDC– behaviour data were highly correlated with the FC patterns derived from the FC–behaviour data (Fig. 5F), supporting that SDC may underlie core FC disruptions associated with stroke. We performed a mediation analysis using RSFC compos- ite scores as the mediating variable, SDC composite scores as the independent variable, and behaviour composite scores
+
+as the dependent variable. The results showed that FC scores partially mediated the relationship between the SDC and be- haviour scores [ab = −0.06, 95% confidence interval (CI) (−0.09, −0.04)] (Fig. 5G). The total effect (c) was −0.09, and the proportion of mediation (ab/c) was 66.7%. However, no mediating effect was observed when the medi- ating variable was the SDC composite score, the independent variable was the RSFC composite score, and the dependent variable was the behaviour composite score [ab = −0.01, 95% CI (0, 0.02)]. The total effect (c) was −0.04, and the proportion of mediation (ab/c) was 25%. These results offer compelling evidence that large-scale disruption of FC med- iates the relationship between SDC and multidomain behav- ioural deficits from a data-driven perspective.
+
+Control and reliability analyses We performed several additional analyses to ensure the ro- bustness of our results. First, in LOOCV, the PLSC compo- nents estimated from training participants were successfully generalized to the remaining participants (Supplementary Fig. 5). Second, the first LC identified in the full dataset was stable across different subsamples. Third, the results were largely unchanged when the RSFC matrix and region-based structural features were based on an alternative parcellation developed by Yan et al.45 (Supplementary Figs. 6–8). Fourth, to ensure that the results were not affected by the in- terpolation processing method for missing behavioural va- lues, we conducted all analyses after excluding participants with incomplete behavioural data. All the results were un- changed. Fifth, the first LC remained stable regardless of whether PCA or SPLS was used for dimensionality reduction. Finally, the results were replicated after we regressed out the confounding effects from both the RSFC and behaviour data.
+
+Discussion Although existing studies have explored the relationship be- tween whole-brain RSFC and neurological deficits after stroke, the degree to which RSFC is associated with deficits as a multivariate dimension remains largely unexplored. Employing a multivariate data-driven approach, we discov- ered covariance patterns of RSFC and neurological deficits that were represented by the LC1. This component shows
+
+Figure 3 Continued scatter plot shows the correlation between the RSFC saliences in the 2-week and 12-month stroke data (P < 0.001). (C) Comparison between 2-week stroke data and control data at the first visit (HC1). The left scatter plot shows the correlation between the behavioural and RSFC composite scores by projecting HC1 data onto the salience parameters from 2-week stroke data (P > 0.05). Each point represents a HC1 participant (n = 28). The middle scatter plot shows the correlation between behavioural saliences in the 2-week stroke data and HC1 data (P > 0.05). The right scatter plot shows the correlation between RSFC saliences in the 2-week stroke data and HC1 data (P < 0.001). (D) Comparison between 2-week stroke data and control data at the second visit (HC2). The left scatter plot shows the correlation between the behavioural and RSFC composite scores by projecting HC2 data onto the salience parameters from 2-week stroke data (P > 0.05). Each point represents a HC2 patient (n = 26). The middle scatter plot shows the correlation between behavioural saliences in the 2-week stroke data and HC2 data (P > 0.05). The right scatter plot shows the correlation between the RSFC saliences in the 2-week stroke data and HC2 data (P > 0.05).
+
+FC-deficit associations after stroke BRAIN COMMUNICATIONS 2025, fcaf276
+
+Figure 4 Prediction performance of structural lesion features. (A) Left: A disconnection streamline map, a brain parcellation map and a structural connectome atlas are used to create a region-based SDC matrix, where each edge represents the proportion of streamlines connecting two regions that are disconnected due to the lesion. Right: Correlations between the predicted and real behaviour/RSFC composite scores when region-based SDC is a predictor (P < 0.001). (B) Left: Lesion topography and brain parcellation are used to compute a region-based damage vector, where each value indicates the percentage of voxels within each grey matter parcel that were damaged by the lesion. Right: Correlations between the predicted and real behaviour/RSFC composite scores when lesion damage is a predictor (P > 0.05). Each point represents a 2-month stroke patient (n = 81).
+
+that the severity of behavioural deficits across multiple do- mains is associated with decreased interhemispheric connect- ivity and increased intrahemispheric connectivity. Notably, the LC was maintained over the course of recovery from stroke. Furthermore, this component was better explained by damage to underlying white matter tracts than by focal le- sions. Then we examined the relationships among SDC, RSFC and deficits and found that RSFC might mediate the relationship between SDC and multidomain deficits.
+
+Previous studies applied dimensionality reduction techni- ques to an extensive battery of post-stroke behavioural mea- sures and revealed that three robust clusters accounted for most of the variance across behavioural domains.23 These behavioural clusters are considered possible representations of the behavioural output of a common, abnormal function- al network state; however, this hypothesis lacks substantial empirical support.12 In the present study, we identified a comprehensive behavioural cluster by incorporating whole- brain RSFC. This cluster involved 30 neurological measures across five behavioural domains (including attention, lan- guage, spatial memory, verbal memory, and motor), reflect- ing general-domain cognitive performance after stroke. Notably, the accuracy of disengagement effect in the Posner orienting task showed a positive correlation with the FC–behaviour dimension, in contrast to the trend of other attention-domain scores (Supplementary Fig. 1). This opposite direction may reflect the distinct neurocognitive
+
+basis of disengagement, which is strongly right-lateralized and particularly vulnerable to right-hemisphere dam- age.46,47 Taken together, these results provide evidence sup- porting the hypothesis that highly correlated deficits resulted from abnormal patterns of synchronisation in functional networks.
+
+The abnormal FC pattern was characterized by reduced interhemispheric and increased intrahemispheric connectiv- ity. Such a pattern is consistent with previous research, which has demonstrated its strong association with specific behavioural scores, including motor, language, attention and memory performance.20,22 Researchers have suggested that these alterations in FC may be related to a significant re- duction in the modularity of the whole-brain network com- pared with healthy adults.40,48 From a more theoretical perspective, these FC abnormalities following a stroke may reflect a decrease in the entropy of the brain and the variabil- ity of neural states, which could correspond to a decrease in the number of possible behaviours that can be generated.49-51 Furthermore, we discovered that the abnor- mal FC pattern aligns with the brain’s sensorimotor- association (S-A) axis. The more severe the behavioural def- icits are, the weaker the connectivity in lower-level sensory networks and the stronger the connectivity in higher-level cognitive networks. A series of studies have consistently re- vealed that FC patterns linked to overall behavioural scores (such as the general psychopathology factor) follow a
+
+| 11
+
+12
+
+| BRAIN COMMUNICATIONS 2025, fcaf276 K. Wu et al.
+
+Figure 5 One robust component linking structural disconnection with raw behavioural assessments and its correlation with the LC1 obtained from the FC–deficit PLSC model. (A) The amount of covariance explained by each LC. Each dot represents an LC, and the red dot represents the LC that survived after permutation testing with FDR correction (q < 0.05). (B) Correlations between individual-specific SDC and behavioural composite scores (n = 81). The inset shows the null distribution obtained by permutation testing. Note that the null distribution is not centred at zero. The dashed line indicates the actual singular value obtained for LC1. (C) The 30 strongest correlations between behavioural measures and behavioural composite scores. The error bars indicate bootstrapped standard deviations with 1000 bootstrap estimations (n = 1000). (D) The top 20% of correlations between SDC data and SDC composite scores. The blue colour indicates that SDC is negatively associated with LC1. (E) The correlation between behavioural saliences obtained from the SDC–deficit PLSC model and those obtained from the FC–deficit PLSC model (P < 0.001). (F) The correlation between SDC saliences from the SDC–deficit PLSC model and RSFC saliences from the FC–deficit PLSC model (P < 0.001). (G) Mediation analysis for SDC composite scores (independent variable), RSFC composite scores (mediating variable) and behaviour composite scores (dependent variable). The total effect (c = −0.09, P < 0.001) and indirect effect (ab = −0.06, P < 0.001) are very significant, and the direct effect (c′ = −0.03, P = 0.04) is significant.
+
+hierarchical gradient from lower-order to higher-order regions.52-54 Lower-order and higher-order regions, which exhibit opposite modulations, are known to be structurally and functionally distinct. These two types of brain regions are structurally different in terms of cortical myelination, cortical layering, cytoarchitecture, cell types, and synaptic physiology, and they serve either simple sensorimotor func- tions or complex abstract cognitive functions.55,56 Together with previous findings, our results demonstrate that lower- order and higher-order regions exhibit opposite effects on general behavioural performance after stroke.
+
+The covariance patterns between deficits and FC in the LC1 were maintained up to 12 months after stroke but did not exist in the HC data, which demonstrated the robustness and specificity of the identified component. One possible ex- planation is that the recovery of multiple functions depends on common recovery mechanisms after stroke. As previous behavioural studies reported, the time course and magnitude of recovery were similar across behavioural domains and the covariance structure of behavioural deficits remained stable during recovery from stroke.24,57-60 These shared
+
+mechanisms involve fundamental plasticity processes includ- ing the restoration of global functional connectivity patterns and the rebalancing of network-level excitation-inhibition dynamics.21,61 While our findings support domain-general mechanisms, we acknowledge the coexistence of domain- specific adaptations. For example, motor recovery frequently involves topographic reorganisation of perilesional cortex; language recovery may engage distinct patterns of contralat- eral homologue recruitment; attention deficits show particu- lar dependence on the resynchronisation of specific attention networks.62 This evidence suggests that post-stroke recovery involves both local network plasticity and overarching bio- logical repair processes, which may operate in parallel or inter- act in complex ways depending on the functional domain.
+
+We observed a slightly higher correlation between 2-week and 12-month data compared with that between 2-week and 3-month data. While a stronger correlation at the shorter interval might be expected, this seemingly counterintuitive pattern likely reflects the dynamic and non-linear nature of post-stroke recovery. The 3-month stage typically represents a transitional period marked by rapid and heterogeneous
+
+FC-deficit associations after stroke BRAIN COMMUNICATIONS 2025, fcaf276
+
+changes in both behaviour and functional connectivity, which may weaken alignment with early brain–behaviour as- sociations. In contrast, recovery tends to stabilize by 12 months, and individual patterns become more consistent, fa- cilitating stronger correspondence with the early LC.
+
+Furthermore, SDC features consistently outperformed fo- cal damage features in predicting FC–deficit PLSC scores, highlighting SDC as a critical structural basis for FC–deficit associations. Previous studies have proposed that damage to hub regions connecting multiple functional networks leads to widespread FC disruptions and extensive behaviour im- pairments.35,48 However, the severe effect of damage to cer- tain cortical hubs might be better explained by damage to the underlying white matter tracts, as SDC contain more com- plex damage information than focal lesions.12,23,34 A recent study demonstrated that indirect SDC of grey matter regions better explained widespread FC abnormalities than focal le- sions did.33 In a healthy human brain, the efficacy of cogni- tive processes relies on communication between multiple areas and damage to the major white matter tracts facilitat- ing this communication is likely to cause multiple deficits.13 Notably, white matter disconnection has a long-lasting det- rimental effect and constrains functional and behavioural outcomes. This may partially explain why the deficit–FC LC identified at 2 weeks persists across recovery.
+
+Many studies on white matter damage have associated spe- cific behavioural deficits with SDC.34,63-65 Our study identified a significant LC linking SDC and an extensive battery of defi- cits across multiple domains. The behavioural pattern of this component, which is highly similar to the pattern obtained from FC–deficit PLSC analysis, reflects general-domain cogni- tive performance. This component consists of interhemispheric SDCs, which have been demonstrated to be a key factor in the imbalance of large-scale functional networks. For example, studies of non-human primates have suggested that transection of the corpus callosum results in a decrease in between- hemisphere FC and an increase in within-hemisphere FC.66,67 A human study also revealed that the severity of interhemi- spheric SDC was correlated with both type of abnormal FC patterns.33 Taken together, interhemispheric SDC, multi- domain deficits and two abnormal patterns of FC are closely linked. However, prior studies have not thoroughly examined the complete relationships among SDC, FC and multidomain deficits within a unified analytical framework. The present study conducted a mediation analysis using the PLSC compos- ite score of the three variables and revealed that FC statistically mediated the association between SDC and behavioural defi- cits. It provided a deeper understanding of interrelationships among the three variables.
+
+recovery trajectories following stroke. Furthermore, we found that SDC is closely associated with this FC–deficit dimension, which provides empirical evidence for the systematic inter- action between SDC, FC, and multi-domain behavioural defi- cits.12 Rather than replicating prior findings, our study offers novel insights by demonstrating that FC statistically mediates the relationship between SDC and multidomain deficits. Clinically, these findings have potential applications in progno- sis and targeted interventions. Specifically, the FC–deficit di- mension could serve as a neurophysiological biomarker to monitor recovery and inform personalized rehabilitation. Functional connectivity assessments could help tailor adaptive therapy protocols, focusing on task-specific training that tar- gets network dysfunction rather than traditional motor or cog- nitive exercises. Moreover, our findings support the use of multisite neuromodulation strategies (e.g. TMS, tDCS) that target network-level dysfunctions rather than isolated regions, potentially improving treatment efficacy.
+
+There are several limitations to this study. First, the relatively small sample sizes in both the stroke and control groups may in- crease the risk of overfitting, particularly in multivariate ana- lyses. To reduce the dimensionality of input features, we used PCA and SPLS to validate the stability of the PLS results. While these approaches reinforce the internal robustness of our findings, the generalizability of PLS outcomes remains limited in the absence of external validation. Moreover, the pre- dictive framework based on LOOCV is inherently constrained by the small sample size and available data, which restricts the generalizability of the results to independent datasets. Future studies involving larger, independent stroke cohorts will be es- sential to further assess the reproducibility and external validity of these multivariant models. Second, we focused on unilateral stroke patients and excluded those with bilateral lesions. This decision aimed to reduce sample heterogeneity and ensure the stability and interpretability of multivariate analyses. Bilateral strokes often involve more complex and widespread damage, which may introduce additional sources of variance that are dif- ficult to model in relatively small samples.68 However, we ac- knowledge that this choice may limit the generalizability of our findings to the broader stroke population. Future stud- ies with larger and more diverse samples will be necessary to capture the full spectrum of network disruptions, including those associated with bilateral lesions. Finally, SDC mea- sures were defined by intersecting patient lesions with a structural connectome atlas, which is assumed to approxi- mate individual structural connectomes. These measures may not account for inter-individual variability in undam- aged fibre pathways. While direct patient SDC measures would be ideal, existing studies suggest that indirect SDC data provide valuable information about structural con- nectivity after brain damage.33,65
+
+In this study, we discovered and replicated multivariate pat- terns of intrinsic FC that are highly correlated with a dimension of neuropsychological deficit in a longitudinal cohort of stroke patients. The dimension was composed of a common post- stroke feature of FC and a unique cluster of deficits involving multiple domains. This multivariate framework moves beyond pairwise associations and reveals a large-scale network-level mechanism that may underlie inter-individual differences in
+
+Supplementary material Supplementary material is available at Brain Communications online.
+
+| 13
+
+14
+
+| BRAIN COMMUNICATIONS 2025, fcaf276 K. Wu et al.
+
+Funding National Natural Science Foundation of China, no. T2325006. National Natural Science Foundation of China, no. 82172016. National Natural Science Foundation of China, no. 82021004. Fundamental Research Funds for the Central Universities, no. 2233200020.
+
+14. Saur D, Lange R, Baumgaertner A, et al. Dynamics of language re- organization after stroke. Brain. 2006;129(6):1371-1384.
+
+15. Ward NS, Brown MM, Thompson AJ, Frackowiak RSJ. Neural cor- relates of motor recovery after stroke: A longitudinal fMRI study. Brain. 2003;126(11):2476-2496.
+
+16. Carter AR, Shulman GL, Corbetta M. Why use a connectivity-based approach to study stroke and recovery of function? NeuroImage. 2012;62(4):2271-2280.
+
+17. Meinzer M, Harnish S, Conway T, Crosson B. Recent developments in functional and structural imaging of aphasia recovery after stroke. Aphasiology. 2011;25(3):271-290.
+
+Competing interests The authors report no competing interests.
+
+18. Fox MD, Snyder AZ, Vincent JL, Corbetta M, Van Essen DC, Raichle ME. The human brain is intrinsically organized into dynam- ic, anticorrelated functional networks. Proc Natl Acad Sci U S A. 2005;102(27):9673-9678.
+
+Data availability The full set of neuroimaging and behavioural data are avail- able at http://cnda.wustl.edu/app/template/Login.vm. Data sharing is not applicable to this article as no new data were created in this study. Specific data and analysis scripts can be found at https://github.com/PsyWuke/Latent_dimension_ linking_FC_with_post-stroke_deficits2025.git.
+
+References
+
+1. Schumacher R, Halai AD, Lambon Ralph MA. Assessing and map- ping language, attention and executive multidimensional deficits in stroke aphasia. Brain. 2019;142(10):3202-3216.
+
+2. Villard S, Kiran S. To what extent does attention underlie language in aphasia? Aphasiology. 2017;31(10):1226-1245.
+
+19. Van Essen DC, Ugurbil K, Auerbach E, et al. The human connec- tome project: A data acquisition perspective. Neuroimage. 2012; 62(4):2222-2231.
+
+20. Baldassarre A, Ramsey L, Hacker CL, et al. Large-scale changes in network interactions as a physiological signature of spatial neglect. Brain. 2014;137(12):3267-3283.
+
+21. Ramsey LE, Siegel JS, Baldassarre A, et al. Normalization of net- work connectivity in hemispatial neglect recovery: Network con- nectivity and neglect recovery. Ann Neurol. 2016;80(1):127-141.
+
+22. Siegel JS, Ramsey LE, Snyder AZ, et al. Disruptions of network con- nectivity predict impairment in multiple behavioral domains after stroke. Proc Natl Acad Sci U S A. 2016;113(30):E4367-E4376. 23. Corbetta M, Ramsey L, Callejas A, et al. Common behavioral clusters and subcortical anatomy in stroke. Neuron. 2015;85(5):927-941. 24. Ramsey LE, Siegel JS, Lang CE, Strube M, Shulman GL, Corbetta M. Behavioural clusters and predictors of performance during re- covery from stroke. Nat Hum Behav. 2017;1(3):0038.
+
+25. Bisogno AL, Favaretto C, Zangrossi A, et al. A low-dimensional structure of neurological impairment in stroke. Brain Commun. 2021;3(2):fcab119.
+
+3. Nys GMS, Van Zandvoort MJE, De Kort PLM, Jansen BPW, De Haan EHF, Kappelle LJ. Cognitive disorders in acute stroke: Prevalence and clinical determinants. Cerebrovasc Dis. 2007; 23(5-6):408-416.
+
+4. Buxbaum LJ, Ferraro MK, Veramonti T, et al. Hemispatial neglect: Subtypes, neuroanatomy, and disability. Neurology. 2004;62(5): 749-756.
+
+5. Broca P. Localisation des fonctions cerebrales: Siegedu langage ar- ticule. Bull Soc D’Anthropol Paris. 1863;4:200-208.
+
+26. Facchini S, Favaretto C, Castellaro M, et al. A common low dimen- sional structure of cognitive impairment in stroke and brain tumors. NeuroImage Clin. 2023;40:103518.
+
+27. Kebets V, Holmes AJ, Orban C, et al. Somatosensory-motor dys- connectivity spans multiple transdiagnostic dimensions of psycho- pathology. Biol Psychiatry. 2019;86(10):779-791.
+
+28. Xia CH, Ma Z, Ciric R, et al. Linked dimensions of psychopath- in functional brain networks. Nat ology and connectivity Commun. 2018;9(1):3003.
+
+6. Wernicke C. The symptom complex of aphasia: A psychological study on a anatomical basis. Boston Stud Philos Sci. 1874;4:34-97. 7. Carrera E, Tononi G. Diaschisis: Past, present, future. Brain. 2014; 137(9):2408-2422.
+
+8. He BJ, Snyder AZ, Vincent JL, Epstein A, Shulman GL, Corbetta M. Breakdown of functional connectivity in frontoparietal networks underlies behavioral deficits in spatial neglect. Neuron. 2007; 53(6):905-918.
+
+9. Baron JC, D’antona R, Pantano P, Serdaru M, Samson Y, Bousser MG. Effects of thalamic stroke on energy metabolism of the cerebral cortex: A positron tomography study in man. Brain. 1986;109(6): 1243-1259.
+
+10. Baron JC, Levasseur M, Mazoyer B, et al. Thalamocortical diaschi- sis: Positron emission tomography in humans. J Neurol Neurosurg Psychiatry. 1992;55(10):935-942.
+
+11. Corbetta M, Kincade MJ, Lewis C, Snyder AZ, Sapir A. Neural ba- sis and recovery of spatial attention deficits in spatial neglect. Nat Neurosci. 2005;8(11):1603-1610.
+
+12. Siegel JS, Shulman GL, Corbetta M. Mapping correlated neuro- logical deficits after stroke to distributed brain networks. Brain Struct Funct. 2022;227(9):3173-3187.
+
+29. Genon S, Eickhoff SB, Kharabian S. Linking interindividual vari- ability in brain structure to behaviour. Nat Rev Neurosci. 2022; 23(5):307-318.
+
+30. Mihalik A, Chapman J, Adams RA, et al. Canonical correlation ana- lysis and partial least squares for identifying brain–behavior asso- ciations: A tutorial and a comparative study. Biol Psychiatry Cogn Neurosci Neuroimaging. 2022;7(11):1055-1067.
+
+31. Modabbernia A, Janiri D, Doucet GE, Reichenberg A, Frangou S. Multivariate patterns of brain-behavior-environment associations in the adolescent brain and cognitive development study. Biol Psychiatry. 2021;89(5):510-520.
+
+32. Wang Y, Genon S, Dong D, et al. Covariance patterns between sleep health domains and distributed intrinsic functional connectivity. Nat Commun. 2023;14(1):7133.
+
+33. Griffis JC, Metcalf NV, Corbetta M, Shulman GL. Structural dis- connections explain brain network dysfunction after stroke. Cell Rep. 2019;28(10):2527-2540.e9.
+
+34. Reber J, Hwang K, Bowren M, et al. Cognitive impairment after fo- cal brain lesions is better predicted by damage to structural than functional network hubs. Proc Natl Acad Sci U S A. 2021; 118(19):e2018784118.
+
+13. Corbetta M, Siegel JS, Shulman GL. On the low dimensionality of behavioral deficits and alterations of brain network connectivity after focal injury. Cortex. 2018;107:229-237.
+
+35. Warren DE, Power JD, Bruss J, et al. Network measures predict neuropsychological outcome after brain injury. Proc Natl Acad Sci U S A. 2014;111(39):14247-14252.
+
+FC-deficit associations after stroke BRAIN COMMUNICATIONS 2025, fcaf276
+
+36. Little RJA. A test of missing completely at random for multivariate data with missing values. J Am Stat Assoc. 1988;83(404): 1198-1202.
+
+53. Han F, Gu Y, Brown GL, Zhang X, Liu X. Neuroimaging contrast across the cortical hierarchy is the feature maximally linked to be- havior and demographics. NeuroImage. 2020;215:116853.
+
+37. Robb RA, Hanson DP. A software system for interactive and quan- titative visualization of multidimensional biomedical images. Australas Phys Eng Sci Med. 1991;14(1):9-30.
+
+38. Chen Y, Jiang Y, Kong X, et al. Common and unique structural plasticity after left and right hemisphere stroke. J Cereb Blood Flow Metab. 2021;41(12):3350-3364.
+
+39. Gordon EM, Laumann TO, Adeyemo B, Huckins JF, Kelley WM, Petersen SE. Generation and evaluation of a cortical area parcella- tion from resting-state correlations. Cereb Cortex. 2016;26(1): 288-303.
+
+54. Langeslag SJE, Schmidt M, Ghassabian A, et al. Functional connect- ivity between parietal and frontal brain regions and intelligence in young children: The generation R study. Hum Brain Mapp. 2013; 34(12):3299-3307.
+
+55. Keller AS, Sydnor VJ, Pines A, Fair DA, Bassett DS, Satterthwaite TD. Hierarchical functional system development supports executive function. Trends Cogn Sci. 2023;27(2):160-174.
+
+56. Shafiei G, Fulcher BD, Voytek B, Satterthwaite TD, Baillet S, Misic B. Neurophysiological signatures of cortical micro-architecture. Nat Commun. 2023;14(1):6000.
+
+40. Siegel JS, Seitzman BA, Ramsey LE, et al. Re-emergence of modular brain networks in stroke recovery. Cortex. 2018;101:44-59. 41. Griffis JC, Metcalf NV, Corbetta M, Shulman GL. Lesion quantifi- cation toolkit: A MATLAB software tool for estimating grey matter damage and white matter disconnections in patients with focal brain lesions. NeuroImage Clin. 2021;30:102639.
+
+42. Courville T, Thompson B. Use of structure coefficients in published multiple regression articles: Β is not enough. Educ Psychol Meas. 2001;61(2):229-248.
+
+43. Krishnan A, Williams LJ, McIntosh AR, Abdi H. Partial least squares (PLS) methods for neuroimaging: A tutorial and review. NeuroImage. 2011;56(2):455-475.
+
+44. McIntosh AR, Lobaugh NJ. Partial least squares analysis of neuroi- maging data: Applications and advances. Neuroimage. 2004;23: S250-S263.
+
+45. Yan X, Kong R, Xue A, et al. Homotopic local-global parcellation of the human cerebral cortex from resting-state functional connect- ivity. NeuroImage. 2023;273:120010.
+
+46. Michael IP. The attention system of the human brain. Annu Rev Neurosci. 1990;13:25-42.
+
+47. Corbetta M, Patel G, Shulman GL. The reorienting system of the hu- man brain: From environment to theory of mind. Neuron. 2008; 58(3):306-324.
+
+48. Gratton C, Nomura EM, Pérez F, D’Esposito M. Focal brain lesions to critical locations cause widespread disruption of the modular organization of the brain. J Cogn Neurosci. 2012;24(6): 1275-1285.
+
+49. Adhikari MH, Hacker CD, Siegel JS, et al. Decreased integration and information capacity in stroke measured by whole brain models of resting state activity. Brain. 2017;140(4):1068-1085.
+
+50. Saenger VM, Ponce-Alvarez A, Adhikari M, Hagmann P, Deco G, Corbetta M. Linking entropy at rest with the underlying structural connectivity in the healthy and lesioned brain. Cereb Cortex. 2018; 28(8):2948-2958.
+
+57. Murphy TH, Corbett D. Plasticity during stroke recovery: From synapse to behaviour. Nat Rev Neurosci. 2009;10(12):861-872. 58. Ge S, Yang CH, Hsu KS, Ming GL, Song H. A critical period for en- hanced synaptic plasticity in newly generated neurons of the adult brain. Neuron. 2007;54(4):559-566.
+
+59. Stinear CM, Byblow WD, Ackerley SJ, Smith MC, Borges VM, Barber PA. Proportional motor recovery after stroke: Implications for trial design. Stroke. 2017;48(3):795-798.
+
+60. Bonkhoff AK, Hope T, Bzdok D, et al. Bringing proportional recov- ery into proportion: Bayesian modelling of post-stroke motor im- pairment. Brain. 2020;143(7):2189-2206.
+
+61. Joy MT, Carmichael ST. Encouraging an excitable brain state: Mechanisms of brain repair in stroke. Nat Rev Neurosci. 2021; 22(1):38-53.
+
+62. Campos B, Choi H, DeMarco AT, et al. Rethinking remapping: Circuit mechanisms of recovery after stroke. J Neurosci. 2023; 43(45):7489-7500.
+
+63. Thiebaut de Schotten M, Tomaiuolo F, Aiello M, et al. Damage to white matter pathways in subacute and chronic spatial neglect: A group study and 2 single-case studies with complete virtual “in vivo” tractography dissection. Cereb Cortex. 2014;24(3):691-706. 64. Thiebaut de Schotten M, Foulon C, Nachev P. Brain disconnections link structural connectivity with function and behaviour. Nat Commun. 2020;11(1):5094.
+
+65. Salvalaggio A, De Filippo De Grazia M, Zorzi M, Thiebaut de Schotten M, Corbetta M. Post-stroke deficit prediction from lesion and indirect structural and functional disconnection. Brain. 2020; 143(7):2173-2188.
+
+66. Johnston JM, Vaishnavi SN, Smyth MD, et al. Loss of resting inter- hemispheric functional connectivity after complete section of the corpus callosum. J Neurosci. 2008;28(25):6453-6458.
+
+67. O’Reilly JX, Croxson PL, Jbabdi S, et al. Causal effect of disconnec- tion lesions on interhemispheric functional connectivity in rhesus monkeys. Proc Natl Acad Sci U S A. 2013;110(34):13982-13987.
+
+51. Rocha RP, Koçillari L, Suweis S, et al. Recovery of neural dynamics criticality in personalized whole-brain models of stroke. Nat Commun. 2022;13(1):3683.
+
+68. Schapiro AC, McClelland JL, Welbourne SR, Rogers TT, Lambon Ralph MA. Why bilateral damage is worse than unilateral damage to the brain. J Cogn Neurosci. 2013;25(12):2107-2123.
+
+52. Elliott ML, Romer A, Knodt AR, Hariri AR. A connectome-wide functional signature of transdiagnostic risk for mental illness. Biol Psychiatry. 2018;84(6):452-459.
+
+69. Margulies DS, Ghosh SS, Goulas A, et al. Situating the default-mode network along a principal gradient of macroscale cortical organiza- tion. Proc Natl Acad Sci U S A. 2016;113(44):12574-12579.
+
+| 15
