@@ -38,8 +38,3 @@ def txt_loader(files_to_process):
 
 txt_loader(pdfs)
 
-
-
-
-
-
