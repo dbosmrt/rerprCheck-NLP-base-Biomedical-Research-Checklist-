@@ -1,45 +1,45 @@
-#First import all of the loaders 
 import os
-import pandas as pd
 from langchain_unstructured import UnstructuredLoader
 
-#Define the folder path
-folder_path = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\pmc_pdfs"
+# giving path for extracting the data from pdfs
+pdf_folder = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\pmc_pdfs"
 
-#Create list to store all data
-all_data = []
+txt_folder_path = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\text files"
 
-#Get all the files from the folder
-all_pdfs = [f for f in os.listdir(folder_path) if f.endswith(".pdf")]
-print(f"Got {len(all_pdfs)} pdf files from {folder_path}")
+pdfs = [f for f in os.listdir(pdf_folder) if f.endswith(".pdf")]
+print(f"All {len(pdfs)} was successfully collected.")
 
-def pdf_praser(all_pdfs):
-    for i, filename in enumerate(all_pdfs):
-        print(f"Processing {i+1}/{len(all_pdfs)} : {filename}")
-
+#create a loop for the pdfs
+def txt_loader(files_to_process):
+    for i, filename in enumerate(files_to_process):
+        print(f"Processing {i+1}/{len(pdfs)} : {filename} ")
+        
         try:
-            file_path = os.path.join(folder_path, filename)
-            loader = UnstructuredLoader(file_path, mode= "elements", strategy = "fast")
-            document = loader.load()
+            file_path = os.path.join(pdf_folder, filename)
 
-            full_text = "\n\n".join([doc.page_content for doc in document])
+            #laod the ustructured loader
+            loader = UnstructuredLoader(file_path, mode = "elements", strategy = "fast")
+            doc = loader.load()
 
-            if not full_text:
-                print(f"Error in Processing {filename}")
-                continue
+            full_text = "\n\n".join([d.page_content for d in doc if d.page_content])
             
-            all_data.append({"filename": filename, "pdf_text": full_text})
-        
+            if not full_text.strip():
+                print(f"No data found in  {filename}")
+                continue
+
+            # Now save the txt file into a folder
+            text_path = os.path.join(txt_folder_path, filename.replace(".pdf", ".txt"))
+            with open(text_path, "w", encoding = "utf-8") as f:
+                f.write(full_text)
         except Exception as e:
-            print(f"No content found in {filename}")
-    
-        
-        # Save then in csv file
-        output_file = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\parsed\parsed_data.csv"
+            print(f"Error in processing the file {filename} : {e}")
 
-        df = pd.DataFrame(all_data)
-        df.to_csv(output_file, index = False, encoding= "utf-8")
+            return 
 
-        print("All the data is successfully extracted and saved into the pdf format.")
+txt_loader(pdfs)
 
-pdf_praser(all_pdfs)
+
+
+
+
+
