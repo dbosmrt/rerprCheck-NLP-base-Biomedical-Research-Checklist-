@@ -4,6 +4,7 @@ from langchain_unstructured import UnstructuredLoader
 # giving path for extracting the data from pdfs
 pdf_folder = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\pmc_pdfs"
 
+#giving path to store the extracted text files
 txt_folder_path = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\text files"
 
 pdfs = [f for f in os.listdir(pdf_folder) if f.endswith(".pdf")]
