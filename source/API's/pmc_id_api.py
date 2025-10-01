@@ -2,7 +2,7 @@
 import requests
 import pandas as pd
 
-# URL for fetching 50k PMC IDs related to biomedical research
+# URL for fetching 50 thousand PMC IDs related to biomedical research
 esearch_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 params = {
     "db": "pmc",
