@@ -21,3 +21,6 @@ data/logs/
 # OS-specific files
 .DS_Store
 Thumbs.db
+
+#chache files
+.idea
