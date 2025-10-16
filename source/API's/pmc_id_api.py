@@ -6,7 +6,6 @@ import logging
 # Configure the logger
 logging.basicConfig(
     filename= "pmc_id_api.log",
-    
     level= logging.DEBUG,
     format= "%(ascytime)s - %(name)s - %(levelname)s - %(message)s",
     datefmt= '%y-%m-%d %H-%M-%S',
