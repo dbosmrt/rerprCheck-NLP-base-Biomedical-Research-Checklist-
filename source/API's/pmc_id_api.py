@@ -1,18 +1,7 @@
 
 import requests
 import pandas as pd
-import logging
 
-# Configure the logger
-logging.basicConfig(
-    filename= "pmc_id_api.log",
-    level= logging.DEBUG,
-    format= "%(ascytime)s - %(name)s - %(levelname)s - %(message)s",
-    datefmt= '%y-%m-%d %H-%M-%S',
-    filemode= "w"
-)
-
-logger = logging.getLogger(__name__)
 
 # URL for fetching 50 thousand PMC IDs related to biomedical research
 esearch_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
@@ -54,5 +43,6 @@ os.makedirs(os.path.dirname(save_path), exist_ok=True)
 
 df = pd.DataFrame({"PMC_ID": pmc_ids})
 df.to_csv(save_path, index=False)
+
 
 print(f"Extracted {len(pmc_ids)} PMC IDs and saved to '{save_path}'")
