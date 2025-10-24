@@ -7,7 +7,8 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Ignore Jupyter notebook checkpoints
+# Ignore Jupyter notebook and checkpoints
+.ipynb
 .ipynb_checkpoints/
 
 # Ignore secrets
