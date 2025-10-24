@@ -1,26 +1,26 @@
-# HTTP & utils
-requests==2.32.3
+# HTTP & utlis
+requests==2.32.4
 tqdm==4.66.4
-pydantic==2.8.2
+pydantic==2.11.7
 python-dotenv==1.0.1
-tenacity==9.0.0
-ratelimit==2.2.1
-backoff==2.2.1
+beautifulsoup4==4.12.3
+selenium==4.35.0
+
 
 # Parsing
-lxml==5.2.2
-beautifulsoup4==4.12.3
-PyMuPDF==1.24.10          # PDF fallback
-pdfminer.six==20240706     # optional fallback
+langchain==0.3.27
+langchain-unstructured==0.1.6
+langchain-core==0.3.75
+langchain-text-splitters==0.3.9
 
-# Optional GROBID client (if you run a local GROBID server)
-grobid-client-python==0.0.9
+
 
 # Data
-pandas==2.2.2
-SQLAlchemy==2.0.32
-psycopg2-binary==2.9.9     # PostgreSQL driver
-# If you prefer SQLite only, you don't need psycopg2-binary
+pandas==2.3.1
+numpy==1.26.4
+spacy==3.8.7
+scispacy==0.6.2
+scipy==1.16.1
+regex==2025.7.34
+transformers==4.55.4
 
-# Testing
-pytest==8.3.1
