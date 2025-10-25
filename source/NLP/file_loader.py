@@ -43,22 +43,23 @@ class LoadText:
     """
     This class contains methods by which we can load the file.
     """
-    def text_loader(text_file : str, model) -> str | None:
+    @staticmethod
+    def text_loader(text_file, model):
         try:
             if not os.path.exists(text_file):
                 logger.error(f"No such file exists here.")
                 return None
             
             else:
-                doc = model(text_file)
-                return doc
+                with open(text_file, 'r', encoding= 'utf-8') as f:
+                    text_file = f.read()
+                    doc = model(text_file)
+                    logger.info(f"Successfully processed file: {text_file}")
+                    return doc 
+                
         except Exception as e:
             logger.error(f"There was some unexpected error: {type(e).__name__} - {str(e)}", exc_info=True)
             return None
         
 
     
-    @staticmethod
-    def show_text(doc):
-        try:
-            
