@@ -30,7 +30,8 @@ class FileReader:
             
             text_file = os.path.split(text_path)
             if text_file[1].endswith('.txt'):
-                return text_file[1]
+                text_file = text_file[1]
+                return text_file
             else:
                 logger.info(f"File {text_file[1]} is not a .txt file.")  # Fixed to show only filename
                 return None
