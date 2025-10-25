@@ -37,3 +37,28 @@ class NLP:
         except Exception as e:
             logger.error(f"Unexpected error loading model: {type(e).__name__} - {str(e)}", exc_info=True)
             return None
+        
+
+class LoadText:
+    """
+    This class contains methods by which we can load the file.
+    """
+    def text_loader(text_file : str, model) -> str | None:
+        try:
+            if not os.path.exists(text_file):
+                logger.error(f"No such file exists here.")
+                return None
+            
+            else:
+                doc = model(text_file)
+                return doc
+        except Exception as e:
+            logger.error(f"There was some unexpected error: {type(e).__name__} - {str(e)}", exc_info=True)
+            return None
+        
+
+    
+    @staticmethod
+    def show_text(doc):
+        try:
+            
