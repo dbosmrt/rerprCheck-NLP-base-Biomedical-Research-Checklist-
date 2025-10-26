@@ -1,12 +1,11 @@
 import logging
 import json
-from langchain_community.llms import Ollama  # Changed to proper case
-from langchain.chains.llm import LLMChain
+from langchain_community.llms import Ollama  
 from langchain.prompts import PromptTemplate
 
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"  # Fixed spacing
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"  
 )
 
 logger = logging.getLogger(__name__)
@@ -15,7 +14,7 @@ class OllamaHandler:
     """
     Handles interaction with Ollama LLM
     """
-    def __init__(self, model_name, temperature):  # Fixed parameter name typo
+    def __init__(self, model_name, temperature):  
         """
         Initialize ollama handler.
         It takes arugements:
@@ -23,7 +22,7 @@ class OllamaHandler:
             temperature: Generation temperature
         """
         try:
-            self.llm = Ollama(model=model_name, temperature=temperature)  # Fixed parameter name and class
+            self.llm = Ollama(model=model_name, temperature=temperature)  
             self.model_name = model_name
             logger.info(f"Initialized Ollama: {model_name}")
         except Exception as e:
@@ -116,8 +115,8 @@ class JSONParser:
             return JSONParser._clean_and_parse(response)
         
     
-    @classmethod  # Changed to classmethod
-    def _clean_and_parse(cls, response):  # Added cls parameter
+    @classmethod  
+    def _clean_and_parse(cls, response):  
         cleaned = response.strip()
 
         if cleaned.startswith('```json'):
@@ -155,20 +154,20 @@ class LLMSectionSplitter:
     def __init__(
             self,
             llm_handler: OllamaHandler,
-            max_text_lenght: int = None,
-            include_metadata: bool = False  # Added missing parameter
+            max_text_length: int = None,
+            include_metadata: bool = False  
     ):
         self.llm_handler = llm_handler
-        self.include_metadata = include_metadata  # Store the parameter
+        self.include_metadata = include_metadata  
 
-        if max_text_lenght is None:  # Keep the existing typo for compatibility
+        if max_text_length is None:  
             model_name = getattr(llm_handler, 'model_name', 'default')
             #extract base model name.
             base_model = model_name.split(':')[0]
             self.max_text_length = self.model_limits.get(base_model, self.model_limits['default'])
             logger.info(f"Auto-detected max_text_length: {self.max_text_length} characters for {model_name}")
         else:
-            self.max_text_length = max_text_lenght
+            self.max_text_length = max_text_length
             logger.info(f"Using custom max_text_length: {max_text_length} characters.")
 
         
@@ -200,7 +199,7 @@ class LLMSectionSplitter:
             logger.info("Calling LLM for section extraction...")
             response = self.llm_handler.generate(prompt)
 
-            sections = self.parse.parse(response)  # Changed parser to parse
+            sections = self.parse.parse(response)  
 
             if sections:
                 logger.info(f"Successfully extracted {len(sections)} sections")
