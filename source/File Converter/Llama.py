@@ -88,5 +88,38 @@ class PromptManager:
             template = PromptManager.section_extraction_prompt
         )
     
-    
+
+
+class LLMSectionSplitter:
+    """
+    It uses LLM to split academic papers into structured sections
+    It is reusable component for section extraction.
+    """
+
+    model_limits = {
+        'llama3.2': 100000,
+        'llama3.1': 100000,
+        'llama2': 8000,
+        'default': 8000
+    }
+
+    def __init__(
+            self,
+            llm_handler: OllamaHandler,
+            max_text_lenght: int= None
+    ):
+        sefl.llm_handler = llm_handler
+
+        if max_text_lenght is None:
+            model_name = getattr(llm_handler, 'model_name', 'default')
+            #extract base model name.
+            base_model = model_name.split(':')[0]
+            self.max_text_length = self.model_limits.get(base_model, self.model_limits['default'])
+            logger.info(f"Auto-detected max_text_length: {self.max_text_length} characters for {model_name}")
+        else:
+            self.max_text_length = max_text_lenght
+            logger.info(f"Using custom max_text_length: {max_text_length} characters.")
+
+        
+        self.prompt_template = PromptManager.get_section_prompt()
 
