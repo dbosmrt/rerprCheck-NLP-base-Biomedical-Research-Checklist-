@@ -1,5 +1,4 @@
 import spacy 
-import scispacy
 import logging
 import os
 from typing import Optional
@@ -17,7 +16,7 @@ class NLP:
     Models supported: "en_core_sci_scibert", "en_core_sci_sm", etc.
     """
     @staticmethod
-    def model(model: str) -> Optional[spacy.language.Language]:
+    def model(model_name: str) -> Optional[spacy.language.Language]:
         """
         Load a spaCy model.
 
@@ -28,11 +27,11 @@ class NLP:
             Optional[spacy.language.Language]: Loaded spaCy model or None if loading fails
         """ 
         try:
-            nlp = spacy.load(model)
-            logger.info(f"Model '{model}' successfully loaded")
+            nlp = spacy.load(model_name)
+            logger.info(f"Model '{model_name}' successfully loaded")
             return nlp
         except OSError as e:
-            logger.error(f"Model '{model}' not found: {str(e)}", exc_info=True)
+            logger.error(f"Model '{model_name}' not found: {str(e)}", exc_info=True)
             return None
         except Exception as e:
             logger.error(f"Unexpected error loading model: {type(e).__name__} - {str(e)}", exc_info=True)
@@ -55,13 +54,36 @@ class LoadText:
             else:
                 with open(text_file, 'r', encoding = 'utf-8') as f:
                     text_file = f.read()
-                    doc = model(text_file)
-                    logger.info(f"Successfully processed file: {text_file}")
-                    return doc 
+                    
+                    return text_file
                 
         except Exception as e:
             logger.error(f"There was some unexpected error: {type(e).__name__} - {str(e)}", exc_info=True)
             return None
+        
+    
+    @staticmethod
+    def save_text(text_file, content):
+        try:
+            with open(text_file, 'w', encoding= "utf-8") as f:
+                content = f.write()
+                return content
+        except Exception as e:
+            logger.error(f"There was some unexpected error occured while writing {text_file}")
+
+    
+    @staticmethod
+    def create_doc(text_file, model):
+        try:
+            doc = model(text_file)
+            return doc
+        except Exception as e:
+            logger.error(f"There was some error in processing this file: {type(e).__name__} - {str(e)}", exc_info= True)
+            return None
+        
+
+
+
         
 
     
