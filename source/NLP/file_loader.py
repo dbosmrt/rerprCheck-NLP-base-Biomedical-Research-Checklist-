@@ -43,7 +43,7 @@ class LoadText:
     This class contains methods by which we can load the file.
     """
     @staticmethod
-    def text_loader(text_file, model):
+    def text_loader(text_file):
         """
         This function check for the text file and if exist the it loads it in the nlp model"""
         try:
