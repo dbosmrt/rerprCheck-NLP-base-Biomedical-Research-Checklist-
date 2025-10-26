@@ -45,13 +45,15 @@ class LoadText:
     """
     @staticmethod
     def text_loader(text_file, model):
+        """
+        This function check for the text file and if exist the it loads it in the nlp model"""
         try:
             if not os.path.exists(text_file):
                 logger.error(f"No such file exists here.")
                 return None
             
             else:
-                with open(text_file, 'r', encoding= 'utf-8') as f:
+                with open(text_file, 'r', encoding = 'utf-8') as f:
                     text_file = f.read()
                     doc = model(text_file)
                     logger.info(f"Successfully processed file: {text_file}")
