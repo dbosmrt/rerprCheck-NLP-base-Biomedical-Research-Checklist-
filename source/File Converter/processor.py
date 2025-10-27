@@ -2,7 +2,7 @@ import logging
 from os import mkdir
 from pathlib import Path
 from tqdm import tqdm
-from typing import Optional, List
+from typing import Optional
 
 #import other modules
 from file_handler import FileReader, FileWriter
