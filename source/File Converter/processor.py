@@ -55,7 +55,7 @@ class BatchProcessor:
         input_folder: str,
         output_folder: str,
         llm_handler: OllamaHandler,
-        file_extension: str,
+        file_extension: str = '.txt',
         max_text_length: Optional[int] = None,
         include_metadata: bool = False,
         include_file_metadata: bool = False

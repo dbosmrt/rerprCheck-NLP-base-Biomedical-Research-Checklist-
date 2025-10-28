@@ -23,9 +23,10 @@ if __name__ == "__main__":
 
     #initialize batch processor
     processor = BatchProcessor(
-        input_folder= " ",
-        output_folder = ".",
-        llm_handler = llm
+        input_folder= r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\parsed\test_files",
+        output_folder = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\parsed\cleaned JSON",
+        llm_handler = llm,
+        file_extension= '.txt'
     )
 
     print("Testing on 3 files...")

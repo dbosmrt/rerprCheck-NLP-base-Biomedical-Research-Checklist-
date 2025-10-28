@@ -1,7 +1,6 @@
 import logging
 import json
-from langchain_community.llms import Ollama  
-from langchain.prompts import PromptTemplate
+import ollama  
 
 logging.basicConfig(
     level=logging.INFO,
@@ -22,8 +21,8 @@ class OllamaHandler:
             temperature: Generation temperature
         """
         try:
-            self.llm = Ollama(model=model_name, temperature=temperature)  
             self.model_name = model_name
+            self.temperature = temperature
             logger.info(f"Initialized Ollama: {model_name}")
         except Exception as e:
             logger.error(f"Failed to Initialize Ollama: {e}")
@@ -32,8 +31,13 @@ class OllamaHandler:
     def generate(self, prompt):
         # Generate response from Ollama.
         try:
-            response = self.llm.invoke(prompt)
-            return response
+            response = ollama.chat(
+                model = self.model_name,
+                messages=[{"role": "user", "content": prompt}],
+                options={"temperature": self.temperature},
+                stream = False
+            )
+            return response ["message"]["content"]
         except Exception as e:
             logger.error(f"Error genrating response: {e}")
             raise
@@ -82,11 +86,8 @@ class PromptManager:
     JSON Output:"""
 
     @staticmethod
-    def get_section_prompt() -> PromptTemplate:
-        return PromptTemplate(
-            input_variables=["text"],
-            template = PromptManager.section_extraction_prompt
-        )
+    def get_section_prompt():
+        return PromptManager.section_extraction_prompt
     
 
 
