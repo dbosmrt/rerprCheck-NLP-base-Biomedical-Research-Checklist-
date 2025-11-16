@@ -23,8 +23,8 @@ if __name__ == "__main__":
 
     #initialize batch processor
     processor = BatchProcessor(
-        input_folder= r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\parsed\test_files",
-        output_folder = r"C:\Users\deepa\Downloads\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\parsed\cleaned JSON",
+        input_folder= r"D:\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\text files",
+        output_folder = r"D:\Deepanshu Bhatt\rerprCheck-NLP-base-Biomedical-Research-Checklist-\Data\raw\output",
         llm_handler = llm,
         file_extension= '.txt'
     )

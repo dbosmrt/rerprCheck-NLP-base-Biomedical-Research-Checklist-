@@ -23,6 +23,7 @@ class OllamaHandler:
         try:
             self.model_name = model_name
             self.temperature = temperature
+            self.base_url = 
             logger.info(f"Initialized Ollama: {model_name}")
         except Exception as e:
             logger.error(f"Failed to Initialize Ollama: {e}")

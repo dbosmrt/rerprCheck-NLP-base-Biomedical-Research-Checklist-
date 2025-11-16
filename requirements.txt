@@ -20,6 +20,7 @@ pandas==2.3.1
 numpy==1.26.4
 spacy==3.8.7
 scispacy==0.6.2
+skweak==0.3.3
 scipy==1.16.1
 regex==2025.7.34
 transformers==4.55.4
