@@ -21,4 +21,5 @@ class WeakSupervision:
     """
     This class conatains methods for weak supervison of the text file.
     """
-    def 
+    def train_model(self):
+        pass 
